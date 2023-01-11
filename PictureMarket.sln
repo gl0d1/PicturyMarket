@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PicturyMarketWeb", "PictureMarketWeb\PicturyMarketWeb.csproj", "{8A791EDC-82BF-481F-BCBD-529B6EFA95C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{2A145037-61BC-4971-8F10-86BBB2B41C7D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{CE19CF28-B8E0-46A4-9D23-9B5180DD0CA7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{E0E29608-1153-41E4-94DE-F05BD2A3FFB3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PicturyMarket.Domain", "PictureMarket.Domain\PicturyMarket.Domain.csproj", "{C4BDB59A-B6C7-4F08-87DA-12FA5F2C2A0A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PictureMarket.DAL", "PictureMarket.DAL\PictureMarket.DAL.csproj", "{8CCE7ECD-41B5-4397-8921-30532D7AB2FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PictureMarket.Service", "PictureMarket.Service\PictureMarket.Service.csproj", "{69853D3F-999F-4FF7-862B-6A4180362660}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A791EDC-82BF-481F-BCBD-529B6EFA95C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A791EDC-82BF-481F-BCBD-529B6EFA95C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A791EDC-82BF-481F-BCBD-529B6EFA95C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A791EDC-82BF-481F-BCBD-529B6EFA95C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4BDB59A-B6C7-4F08-87DA-12FA5F2C2A0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4BDB59A-B6C7-4F08-87DA-12FA5F2C2A0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4BDB59A-B6C7-4F08-87DA-12FA5F2C2A0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4BDB59A-B6C7-4F08-87DA-12FA5F2C2A0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CCE7ECD-41B5-4397-8921-30532D7AB2FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CCE7ECD-41B5-4397-8921-30532D7AB2FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CCE7ECD-41B5-4397-8921-30532D7AB2FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CCE7ECD-41B5-4397-8921-30532D7AB2FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69853D3F-999F-4FF7-862B-6A4180362660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69853D3F-999F-4FF7-862B-6A4180362660}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69853D3F-999F-4FF7-862B-6A4180362660}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69853D3F-999F-4FF7-862B-6A4180362660}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C4BDB59A-B6C7-4F08-87DA-12FA5F2C2A0A} = {CE19CF28-B8E0-46A4-9D23-9B5180DD0CA7}
+		{8CCE7ECD-41B5-4397-8921-30532D7AB2FE} = {2A145037-61BC-4971-8F10-86BBB2B41C7D}
+		{69853D3F-999F-4FF7-862B-6A4180362660} = {E0E29608-1153-41E4-94DE-F05BD2A3FFB3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79FA7143-7869-43EF-805D-4B4D6977C9B1}
+	EndGlobalSection
+EndGlobal
