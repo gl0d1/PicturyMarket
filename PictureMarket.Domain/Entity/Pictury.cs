@@ -4,12 +4,13 @@ namespace PicturyMarket.Domain.Entity
 {
     public class Pictury
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string description { get; set; }
-        public string image_Url { get; set; }
-        public decimal price { get; set; }
-        public DateTime data_create { get; set; }
-        public PicturyGenre genre {get; set; }
+        public int Id { get; set; }
+        public string? Title { get; set; }
+        public string Description { get; set; }
+        public string ImageUrl { get; set; }
+        public decimal? Price { get; set; }
+        public DateTime? DataCreate { get; set; }
+        public PicturyGenre? Genre {get; set; }
+        public ICollection<Author>? Authors { get; set; }
     }
 }

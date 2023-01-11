@@ -18,9 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PictureMarket.DAL\PictureMarket.DAL.csproj" />
+    <ProjectReference Include="..\PictureMarket.DAL\PicturyMarket.DAL.csproj" />
     <ProjectReference Include="..\PictureMarket.Domain\PicturyMarket.Domain.csproj" />
-    <ProjectReference Include="..\PictureMarket.Service\PictureMarket.Service.csproj" />
+    <ProjectReference Include="..\PictureMarket.Service\PicturyMarket.Service.csproj" />
   </ItemGroup>
 
 </Project>

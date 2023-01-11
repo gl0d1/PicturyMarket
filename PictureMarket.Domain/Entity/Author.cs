@@ -2,9 +2,10 @@
 {
     public class Author
     {
-        public int id { get; set; }
-        public string name { get; set;}
-        public string surname { get; set;}
-        public DateTime birth_date { get; set; }
+        public int Id { get; set; }
+        public string? Name { get; set;}
+        public string Surname { get; set;}
+        public DateTime BirthDate { get; set; }
+        public ICollection<Pictury>? Picturies { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using PictureMarket.Service.Interfaces;
+﻿using PicturyMarket.Service.Interfaces;
 using PicturyMarket.DAL.Interfaces;
 using PicturyMarket.Domain.Entity;
 using PicturyMarket.Domain.Enum;
@@ -7,7 +7,7 @@ using PicturyMarket.Domain.Response;
 using PicturyMarket.Domain.ViewModels.Pictury;
 using System;
 
-namespace PictureMarket.Service.Implementations
+namespace PicturyMarket.Service.Implementations
 {
     public class PicturyService : IPicturyService
     {
@@ -18,15 +18,15 @@ namespace PictureMarket.Service.Implementations
             _picturyRepository = picturyRepository;
         }
 
-        public async Task<IBaseResponse<IEnumerable<Pictury>>> GetPictures()
+        public async Task<IBaseResponse<IEnumerable<Pictury>>> GetPicturies()
         {
             var baseResponse = new BaseResponse<IEnumerable<Pictury>>();
             
             try
             {
-                var pictures = await _picturyRepository.Select();
+                var picturies = await _picturyRepository.Select();
 
-                if (pictures.Count == 0)
+                if (picturies.Count == 0)
                 {
                     baseResponse.Description = "Найдено 0 элементов";
                     baseResponse.StatusCode = StatusCode.OK;
@@ -34,7 +34,7 @@ namespace PictureMarket.Service.Implementations
                     return baseResponse;
                 }
 
-                baseResponse.Date = pictures;
+                baseResponse.Date = picturies;
                 baseResponse.StatusCode = StatusCode.OK; 
 
                 return baseResponse;
@@ -43,7 +43,7 @@ namespace PictureMarket.Service.Implementations
             {
                 return new BaseResponse<IEnumerable<Pictury>>()
                 { 
-                    Description = $"[GetPictures] : {exception.Message}",
+                    Description = $"[GetPicturies] : {exception.Message}",
                     StatusCode = StatusCode.InternalServerError
                 };
             }
@@ -79,13 +79,13 @@ namespace PictureMarket.Service.Implementations
             }
         }
 
-        public async Task<IBaseResponse<Pictury>> GetPicturyByName(string name)
+        public async Task<IBaseResponse<Pictury>> GetPicturyByTitle(string title)
         {
             var baseResponse = new BaseResponse<Pictury>();
 
             try
             {
-                var pictury = await _picturyRepository.GetByName(name);
+                var pictury = await _picturyRepository.GetByTitle(title);
 
                 if (pictury == null)
                 {
@@ -103,7 +103,7 @@ namespace PictureMarket.Service.Implementations
             {
                 return new BaseResponse<Pictury>()
                 {
-                    Description = $"[GetPicturyByName] : {exception.Message}",
+                    Description = $"[GetPicturyByTitle] : {exception.Message}",
                     StatusCode = StatusCode.InternalServerError
                 };
             }
@@ -147,12 +147,12 @@ namespace PictureMarket.Service.Implementations
             {
                 var pictury = new Pictury()
                 {
-                    name = picturyViewModel.name,
-                    description = picturyViewModel.description,
-                    image_Url = picturyViewModel.image_Url,
-                    price = picturyViewModel.price ,
-                    data_create = DateTime.Now ,
-                    genre = (PicturyGenre)Convert.ToInt32(picturyViewModel.genre)
+                    Title = picturyViewModel.Title,
+                    Description = picturyViewModel.Description,
+                    ImageUrl = picturyViewModel.ImageUrl,
+                    Price = picturyViewModel.Price ,
+                    DataCreate = DateTime.Now ,
+                    Genre = (PicturyGenre)Convert.ToInt32(picturyViewModel.Genre)
                 };
 
                 await _picturyRepository.Create(pictury);

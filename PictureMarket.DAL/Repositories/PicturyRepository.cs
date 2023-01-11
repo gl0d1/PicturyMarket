@@ -16,7 +16,7 @@ namespace PicturyMarket.DAL.Repositories
 
         public async Task<bool> Create(Pictury entity)
         {
-            await _db.pictures.AddAsync(entity);
+            await _db.Picturies.AddAsync(entity);
             await _db.SaveChangesAsync();
 
             return true;
@@ -24,7 +24,7 @@ namespace PicturyMarket.DAL.Repositories
 
         public async Task<bool> Delete(Pictury entity)
         {
-            _db.pictures.Remove(entity);
+            _db.Picturies.Remove(entity);
             await _db.SaveChangesAsync();
 
             return true;
@@ -32,7 +32,7 @@ namespace PicturyMarket.DAL.Repositories
 
         public async Task<List<Pictury>> Select()
         {
-            return await _db.pictures.ToListAsync();
+            return await _db.Picturies.ToListAsync();
         }
 
         public async Task<bool> Update(Pictury entity)
@@ -40,14 +40,14 @@ namespace PicturyMarket.DAL.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<Pictury> GetByName(string name)
+        public async Task<Pictury> GetByTitle(string title)
         {
-            return await _db.pictures.FirstOrDefaultAsync(pictury => pictury.name == name);
+            return await _db.Picturies.FirstOrDefaultAsync(pictury => pictury.Title == title);
         }
 
         public async Task<Pictury> Get(int id)
         {
-            return await _db.pictures.FirstOrDefaultAsync(pictury => pictury.id == id);
+            return await _db.Picturies.FirstOrDefaultAsync(pictury => pictury.Id == id);
         }
     }
 }

@@ -2,11 +2,11 @@
 {
     public class PicturyViewModel
     {
-        public string name { get; set; }
-        public string description { get; set; }
-        public string image_Url { get; set; }
-        public decimal price { get; set; }
-        public DateTime data_create { get; set; }
-        public string genre { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string ImageUrl { get; set; }
+        public decimal Price { get; set; }
+        public DateTime DataCreate { get; set; }
+        public string Genre { get; set; }
     }
 }

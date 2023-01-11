@@ -5,9 +5,13 @@ namespace PicturyMarket.DAL
 {
     public class PicturyMarketDbContext : DbContext
     {
-        public PicturyMarketDbContext(DbContextOptions<PicturyMarketDbContext> options) : base(options) {}
+        public PicturyMarketDbContext(DbContextOptions<PicturyMarketDbContext> options) : base(options) 
+        {
+            Database.EnsureDeleted();
+            Database.EnsureCreated();
+        }
 
-        public DbSet<Pictury> pictures { get; set; }
-        public DbSet<Author> authors { get; set; }
+        public DbSet<Pictury> Picturies { get; set; }
+        public DbSet<Author> Authors { get; set; }
     }
 }

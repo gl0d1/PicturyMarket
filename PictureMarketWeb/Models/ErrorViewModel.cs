@@ -1,4 +1,4 @@
-namespace PictureMarketWeb.Models
+namespace PicturyMarketWeb.Models
 {
     public class ErrorViewModel
     {

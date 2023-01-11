@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PictureMarket.DAL\PictureMarket.DAL.csproj" />
+    <ProjectReference Include="..\PictureMarket.DAL\PicturyMarket.DAL.csproj" />
     <ProjectReference Include="..\PictureMarket.Domain\PicturyMarket.Domain.csproj" />
   </ItemGroup>
 

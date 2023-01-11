@@ -13,9 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{E0E2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PicturyMarket.Domain", "PictureMarket.Domain\PicturyMarket.Domain.csproj", "{C4BDB59A-B6C7-4F08-87DA-12FA5F2C2A0A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PictureMarket.DAL", "PictureMarket.DAL\PictureMarket.DAL.csproj", "{8CCE7ECD-41B5-4397-8921-30532D7AB2FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PicturyMarket.DAL", "PictureMarket.DAL\PicturyMarket.DAL.csproj", "{8CCE7ECD-41B5-4397-8921-30532D7AB2FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PictureMarket.Service", "PictureMarket.Service\PictureMarket.Service.csproj", "{69853D3F-999F-4FF7-862B-6A4180362660}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PicturyMarket.Service", "PictureMarket.Service\PicturyMarket.Service.csproj", "{69853D3F-999F-4FF7-862B-6A4180362660}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

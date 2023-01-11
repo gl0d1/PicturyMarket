@@ -4,6 +4,6 @@ namespace PicturyMarket.DAL.Interfaces
 {
     public interface IPicturyRepository: IBaseRepository<Pictury>  
     {
-        Task<Pictury> GetByName(string name);
+        Task<Pictury> GetByTitle(string title);
     }
 }

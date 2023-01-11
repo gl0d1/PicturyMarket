@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PictureMarket.Service.Interfaces;
+using PicturyMarket.Service.Interfaces;
 using System.Linq;
 using System.Threading.Tasks;
 using PicturyMarket.DAL.Interfaces;
@@ -18,9 +18,9 @@ namespace PicturyMarketWeb.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPictures()
+        public async Task<IActionResult> GetPicturies()
         {
-            var response = await _picturyService.GetPictures();
+            var response = await _picturyService.GetPicturies();
 
             if (response.StatusCode == PicturyMarket.Domain.Enum.StatusCode.OK)
             {
@@ -30,5 +30,17 @@ namespace PicturyMarketWeb.Controllers
             return RedirectToAction("Error");
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetPictury(int id)
+        {
+            var response = await _picturyService.GetPictury(id);
+
+            if(response.StatusCode == PicturyMarket.Domain.Enum.StatusCode.OK)
+            {
+                return View(response.Date);
+            }
+
+            return RedirectToAction("Error");
+        }
     }
 }

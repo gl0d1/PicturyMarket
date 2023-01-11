@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PicturyMarket.Domain.Entity;
-using PictureMarketWeb.Models;
+using PicturyMarketWeb.Models;
 using System.Diagnostics;
 
-namespace PictureMarketWeb.Controllers
+namespace PicturyMarketWeb.Controllers
 {
     public class HomeController : Controller
     {

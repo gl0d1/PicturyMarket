@@ -2,8 +2,8 @@ using PicturyMarket.DAL;
 using PicturyMarket.DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using PicturyMarket.DAL.Repositories;
-using PictureMarket.Service.Interfaces;
-using PictureMarket.Service.Implementations;
+using PicturyMarket.Service.Interfaces;
+using PicturyMarket.Service.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +12,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<PicturyMarketDbContext>(
     options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddRazorPages();
 builder.Services.AddScoped<IPicturyRepository, PicturyRepository>();
 builder.Services.AddScoped<IPicturyService, PicturyService>();
 
@@ -34,6 +35,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{Id?}");
 
 app.Run();
