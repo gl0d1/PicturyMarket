@@ -2,7 +2,8 @@
 {
     public enum StatusCode
     {
-        PicturyNotFound = 0,
+        UserNotFound = 0,
+        PicturyNotFound = 10,
         OK = 200,
         InternalServerError = 500,
     }

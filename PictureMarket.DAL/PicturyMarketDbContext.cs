@@ -15,3 +15,4 @@ namespace PicturyMarket.DAL
         public DbSet<Author> Authors { get; set; }
     }
 }
+    

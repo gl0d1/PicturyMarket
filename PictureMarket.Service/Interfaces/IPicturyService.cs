@@ -11,5 +11,6 @@ namespace PicturyMarket.Service.Interfaces
         Task<IBaseResponse<Pictury>> GetPicturyByTitle(string title);
         Task<IBaseResponse<bool>> DeletePicrury(int id);
         Task<IBaseResponse<PicturyViewModel>> CreatePictury(PicturyViewModel picturyViewModel);
+        Task<IBaseResponse<Pictury>> EditPictury(int id, PicturyViewModel picturyViewModel);
     }
 }

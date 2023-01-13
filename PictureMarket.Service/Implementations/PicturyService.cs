@@ -60,7 +60,7 @@ namespace PicturyMarket.Service.Implementations
                 if(pictury == null) 
                 {
                     baseResponse.Description = "Pictury not found";
-                    baseResponse.StatusCode = StatusCode.PicturyNotFound;
+                    baseResponse.StatusCode = StatusCode.UserNotFound;
 
                     return baseResponse;
                 }
@@ -90,7 +90,7 @@ namespace PicturyMarket.Service.Implementations
                 if (pictury == null)
                 {
                     baseResponse.Description = "Pictury not found";
-                    baseResponse.StatusCode = StatusCode.PicturyNotFound;
+                    baseResponse.StatusCode = StatusCode.UserNotFound;
 
                     return baseResponse;
                 }
@@ -120,7 +120,7 @@ namespace PicturyMarket.Service.Implementations
                 if(pictury == null)
                 {
                     baseResponse.Description = "Pictury not found";
-                    baseResponse.StatusCode = StatusCode.PicturyNotFound;
+                    baseResponse.StatusCode = StatusCode.UserNotFound;
 
                     return baseResponse;
                 }
@@ -167,6 +167,41 @@ namespace PicturyMarket.Service.Implementations
             }
 
             return baseResponse;
+        }
+
+        public async Task<IBaseResponse<Pictury>> EditPictury(int id, PicturyViewModel picturyViewModel)
+        {
+            var baseResponse = new BaseResponse<Pictury>();
+
+            try
+            {
+                var pictury = await _picturyRepository.Get(id);
+
+                if (pictury == null)
+                {
+                    baseResponse.StatusCode = StatusCode.PicturyNotFound;
+                    baseResponse.Description = "Pictury not found";
+                    return baseResponse;
+                }
+
+                pictury.Description= picturyViewModel.Description;
+                pictury.Title = picturyViewModel.Title;
+                pictury.ImageUrl = picturyViewModel.ImageUrl;
+                pictury.Price = picturyViewModel.Price;
+                pictury.DataCreate = picturyViewModel.DataCreate;
+                //Genre
+
+                await _picturyRepository.Update(pictury);
+                return baseResponse;
+            }
+            catch(Exception exception)
+            {
+                return new BaseResponse<Pictury>()
+                {
+                    Description = $"[EditPictury] : {exception.Message}",
+                    StatusCode = StatusCode.InternalServerError
+                };
+            }
         }
     }
 }

@@ -35,9 +35,11 @@ namespace PicturyMarket.DAL.Repositories
             return await _db.Picturies.ToListAsync();
         }
 
-        public async Task<bool> Update(Pictury entity)
+        public async Task<Pictury> Update(Pictury entity)
         {
-            throw new NotImplementedException();
+            _db.Update(entity);
+            await _db.SaveChangesAsync();
+            return entity;
         }
 
         public async Task<Pictury> GetByTitle(string title)
