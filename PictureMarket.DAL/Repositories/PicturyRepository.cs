@@ -1,11 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PicturyMarket.DAL.Interfaces;
+﻿using PicturyMarket.DAL.Interfaces;
 using PicturyMarket.Domain.Entity;
-using System.Collections.Generic;
 
 namespace PicturyMarket.DAL.Repositories
 {
-    public class PicturyRepository : IPicturyRepository
+    public class PicturyRepository : IBaseRepository<Pictury>
     {
         private readonly PicturyMarketDbContext _db;
 
@@ -14,42 +12,29 @@ namespace PicturyMarket.DAL.Repositories
             _db = db;
         }
 
-        public async Task<bool> Create(Pictury entity)
+        public async Task CreateAsync(Pictury entity)
         {
             await _db.Picturies.AddAsync(entity);
             await _db.SaveChangesAsync();
-
-            return true;
         }
 
-        public async Task<bool> Delete(Pictury entity)
+        public async Task DeleteAsync(Pictury entity)
         {
             _db.Picturies.Remove(entity);
             await _db.SaveChangesAsync();
-
-            return true;
         }
 
-        public async Task<List<Pictury>> Select()
+        public IQueryable<Pictury> GetAll()
         {
-            return await _db.Picturies.ToListAsync();
+            return _db.Picturies;
         }
 
-        public async Task<Pictury> Update(Pictury entity)
+        public async Task<Pictury> UpdateAsync(Pictury entity)
         {
-            _db.Update(entity);
+            _db.Picturies.Update(entity);
             await _db.SaveChangesAsync();
+
             return entity;
-        }
-
-        public async Task<Pictury> GetByTitle(string title)
-        {
-            return await _db.Picturies.FirstOrDefaultAsync(pictury => pictury.Title == title);
-        }
-
-        public async Task<Pictury> Get(int id)
-        {
-            return await _db.Picturies.FirstOrDefaultAsync(pictury => pictury.Id == id);
         }
     }
 }

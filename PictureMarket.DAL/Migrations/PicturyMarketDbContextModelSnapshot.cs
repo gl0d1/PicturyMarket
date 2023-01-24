@@ -30,7 +30,7 @@ namespace PicturyMarket.DAL.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DataCreate")
+                    b.Property<DateTime>("DateCreate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")

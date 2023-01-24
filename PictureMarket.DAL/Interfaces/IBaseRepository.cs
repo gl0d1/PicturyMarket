@@ -2,10 +2,9 @@
 {
     public interface IBaseRepository<T>
     {
-        Task<bool> Create(T entity);
-        Task<T> Get(int id);
-        Task<List<T>> Select();
-        Task<bool> Delete(T entity);
-        Task<T> Update(T entity);
+        Task CreateAsync(T entity);
+        IQueryable<T> GetAll();
+        Task DeleteAsync(T entity);
+        Task<T> UpdateAsync(T entity);
     }
 }

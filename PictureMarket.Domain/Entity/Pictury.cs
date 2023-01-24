@@ -7,10 +7,11 @@ namespace PicturyMarket.Domain.Entity
         public int Id { get; set; }
         public string Title { get; set; }
         public string? Description { get; set; }
-        public string? ImageUrl { get; set; }
         public decimal Price { get; set; }
-        public DateTime DataCreate { get; set; }
+        public DateTime DateCreate { get; set; }
         public PicturyGenre Genre {get; set; }
-        public ICollection<User> Users { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
+        public byte[]? Avatar { get; set; }
     }
 }

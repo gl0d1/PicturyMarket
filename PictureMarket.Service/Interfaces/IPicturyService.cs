@@ -1,16 +1,18 @@
 ﻿using PicturyMarket.Domain.Entity;
 using PicturyMarket.Domain.Interfaces;
 using PicturyMarket.Domain.ViewModels.Pictury;
+using PicturyMarket.Domain.Response;
 
 namespace PicturyMarket.Service.Interfaces
 {
     public interface IPicturyService
     {
-        Task<IBaseResponse<IEnumerable<Pictury>>> GetPicturies();
-        Task<IBaseResponse<Pictury>> GetPictury(int id);
-        Task<IBaseResponse<Pictury>> GetPicturyByTitle(string title);
-        Task<IBaseResponse<bool>> DeletePicrury(int id);
-        Task<IBaseResponse<PicturyViewModel>> CreatePictury(PicturyViewModel picturyViewModel);
-        Task<IBaseResponse<Pictury>> EditPictury(int id, PicturyViewModel picturyViewModel);
+        BaseResponse<Dictionary<int, string>> GetGenres();
+        IBaseResponse<List<Pictury>> GetPicturies();
+        Task<IBaseResponse<PicturyViewModel>> GetPicturyAsync(int id);
+        Task<BaseResponse<Dictionary<int, string>>> GetPicturyAsync(string term);
+        Task<IBaseResponse<bool>> DeletePicruryAsync(int id);
+        Task<IBaseResponse<Pictury>> CreatePicturyAsync(PicturyViewModel picturyViewModel, byte[] imageData);
+        Task<IBaseResponse<Pictury>> EditPicturyAsync(int id, PicturyViewModel picturyViewModel);
     }
 }

@@ -4,7 +4,8 @@ namespace PicturyMarket.Domain.Interfaces
 {
     public interface IBaseResponse<T>
     {
+        string Description { get; }
         StatusCode StatusCode { get; }
-        T Date { get; }
+        T Data { get; }
     }
 }
