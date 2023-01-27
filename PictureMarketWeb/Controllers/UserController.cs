@@ -1,12 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
 using PicturyMarket.Service.Interfaces;
 using PicturyMarket.Domain.Extensions;
 using PicturyMarket.Domain.ViewModels.User;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace PicturyMarketWeb.Controllers
 {
