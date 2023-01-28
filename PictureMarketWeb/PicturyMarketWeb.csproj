@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.12" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.12" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.12">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.13">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -21,6 +21,14 @@
     <ProjectReference Include="..\PictureMarket.DAL\PicturyMarket.DAL.csproj" />
     <ProjectReference Include="..\PictureMarket.Domain\PicturyMarket.Domain.csproj" />
     <ProjectReference Include="..\PictureMarket.Service\PicturyMarket.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Account\" />
+    <Folder Include="Views\Basket\" />
+    <Folder Include="Views\Profile\" />
+    <Folder Include="Views\Order\" />
+    <Folder Include="Views\Pictury\" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,7 @@
 using PicturyMarket.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using PicturyMarketWeb;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,9 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.LoginPath = new PathString("/Account/Login");
         options.AccessDeniedPath = new PathString("/Account/Login");
     });
+
+builder.Services.InitializeRepositories();
+builder.Services.InitializeServices();
 
 var app = builder.Build();
 

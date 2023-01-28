@@ -10,8 +10,6 @@ namespace PicturyMarket.Domain.Entity
         public decimal Price { get; set; }
         public DateTime DateCreate { get; set; }
         public PicturyGenre Genre {get; set; }
-        public int UserId { get; set; }
-        public User User { get; set; }
         public byte[]? Avatar { get; set; }
     }
 }
