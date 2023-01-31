@@ -1,1 +1,161 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Главная";
+}
+
+<div style="padding: 10px;"></div>
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="card col-md-12">
+        <div class="card-body">
+            <h5 class="card-title text-center">Добро пожаловать на сайт Picturymarket</h5>
+            <p class="card-text">
+                На этом сайте вы сможете выбрать подходящую для вас картину, посмотреть её описание, сравнить
+                с другими, а так же можете приобрести эту картину.
+            </p>
+            <p class="card-text"><small class="text-muted">Alex</small></p>
+        </div>
+    </div>
+
+    <div style="padding: 10px;"></div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://www.crushpixel.com/big-static13/preview4/red-brick-wall-texture-grunge-1165885.jpg" class="card-img-top card-image" />
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Wall</h5>
+                        <p class="card-text">Wall — На первый взгляд обычная стена, но если присмотрется - она завораживает вщгляд и погружает тебя в полёт мыслей, где ты можешь найти ответ на волнующий себя вопрос.</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a asp-controller="Pictury" asp-action="GetPicturies" class="card-link">Список картин</a>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://sun9-north.userapi.com/sun9-88/s/v1/ig2/iZuwQ504VR4kQNQimHuZZuNVPXGweyyxzKTGxeEtPkDPmbTRdEpXSlGNF7WVkYjbnxkLGJlsRDaGWJjKJrGccZnh.jpg?size=540x1080&quality=96&type=album" class="card-img-top card-image" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">LightBulbs</h5>
+                    <p class="card-text">
+                        Light bulbs — Просто свет или сияние души?
+                    </p>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-controller="Pictury" asp-action="GetPicturies" class="card-link">Список картин</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="https://sun9-west.userapi.com/sun9-8/s/v1/ig2/G5ZvrPY1ugt89Ra26vMH4AVaB3g--rrXhpTsdAAkSLXkyt1EMMYQ2rYVzvMvWB2Oiu1ghMUqL2dnhyVWyVJ9S7BF.jpg?size=604x604&quality=96&type=album" class="card-img-top card-image" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Winter</h5>
+                    <p class="card-text">
+                        Winter — Зима - пора воспоминаний и улыбок!
+                        </p>
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-controller="Pictury" asp-action="GetPicturies" class="card-link">Список картин</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="padding: 10px;"></div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Основные жанры картин</h5>
+            <p class="card-text">
+                Жанр картины - исторически сложившееся деление произведений искусства в соответствии стемами и объектами изображения.
+            </p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+
+    <div style="padding: 10px;"></div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Наибольшим спросом пользуются картины следующих жанров: </h5>
+        </div>
+        <ul class="list-group list-group-flush" id="ulListId">
+            <li class="list-group-item">Портрет — изображение того или другого человека, произведенное средствами живописи, гравирования или скульптуры, также фотографическое изображение или словесное описание.</li>
+            <li class="list-group-item">Пейзаж — тип картины, изображающий природу или какуюлибо местность</li>
+            <li class="list-group-item">Морина — картина, изображающая море</li>
+            <li class="list-group-item">Анималистический — изображение животных</li>
+            <li class="list-group-item">Натюрморт — мёртвая натура, то есть что-то неодушевлённое</li>
+            <li class="list-group-item">Батальный — жанр изобразительного искусства, посвящённый темам войны и военной жизни</li>
+        </ul>
+        <div class="card-body">
+            <button class="btn btn-danger" id="btnHideId">Скрыть</button>
+            <button class="btn btn-primary" id="btnShowId">Показать</button>
+        </div>
+    </div>
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+            Вы не авторизовались
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>Для просмотра контента вы должны авторизоваться</p>
+            </blockquote>
+        </div>
+    </div>
+
+    <div style="padding: 10px;"></div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card h-100">
+                <img src="~/img/pictury1.jpg" class="card-img-top" alt="pictury1">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Недоступно</h5>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">pictury1</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="~/img/pictury2.jpg" class="card-img-top" alt="pictury2">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Недоступно</h5>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">pictury2</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="~/img/pictury3.jpg" class="card-img-top" alt="pictury3">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Недоступно</h5>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">pictury3</small>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section pageScripts
+    {
+    <script>
+
+        $('#btnHideId').click(function(){
+          $('#ulListId').hide(2000);
+        });
+
+        $('#btnShowId').click(function () {
+          $('#ulListId').show(2000);
+        });
+    </script>
+}
