@@ -24,11 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Account\" />
     <Folder Include="Views\Basket\" />
     <Folder Include="Views\Profile\" />
     <Folder Include="Views\Order\" />
-    <Folder Include="Views\Pictury\" />
   </ItemGroup>
 
 </Project>

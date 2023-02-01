@@ -124,5 +124,7 @@ namespace PicturyMarketWeb.Controllers
             var genres = _picturyService.GetGenres();
             return Json(genres.Data);
         }
+
+        public IActionResult Compare() => PartialView();
     }
 }

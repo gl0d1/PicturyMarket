@@ -1,0 +1,163 @@
+﻿<div class="row">
+    <div class="col">
+        <select class="form-control" id="firstPicturyId"></select>
+    </div>
+    <div class="col">
+        <select class="form-control" id="secondPicturyId"></select>
+    </div>
+</div>
+
+<div style="padding: 10px;"></div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card-body">
+            <h5 class="card-title" id="firstCardTitleId"></h5>
+            <p class="card-text" id="firstCardDescId"></p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" id="firstCardPriceId"></li>
+            <li class="list-group-item" id="firstCardDateCreateId"></li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <div class="card-body">
+            <h5 class="card-title" id="secondCardTitleId"></h5>
+            <p class="card-text" id="secondCardDescId"></p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" id="secondCardPriceId"></li>
+            <li class="list-group-item" id="secondCardDateCreateId"></li>
+        </ul>
+    </div>
+</div>
+
+<div style="padding: 10px;"></div>
+
+<div class="text-white bg-secondary" id="warningCardId">
+    <div class="bg-secondary card-header text-white">
+        Предупреждение
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <p id="warningId"></p>
+        </blockquote>
+    </div>
+</div>
+
+<div style="padding: 10px;"></div>
+
+<div id="resultCardId">
+    <div class="bg-secondary card-header text-white">
+        Результат
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" id="resultSpeedId"></li>
+            <li class="list-group-item" id="resultPriceId"></li>
+        </ul>
+    </div>
+</div>
+
+<script src="~/lib/select2/js/select2.full.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('#firstCardId').hide();
+        $('#secondCardId').hide();
+        $('#warningCardId').hide();
+        $('#resultCardId').hide();
+
+        let firstCar = null;
+        let secondCar = null;
+
+        $('#firstPicturyId, #secondPicturyId').select2({
+            placeholder: "Выберите картину",
+            minimumInputLength: 2,
+            allowClear: true,
+            ajax: {
+                type: "POST",
+                url: "@Url.Action("GetPictury", "Pictury")",
+                dataType: "json",
+                data: function (params) {
+                    var query = {
+                        term: params.term,
+                        page: params.page || 1,
+                        pageSize: params.pageSize || 5
+                    };
+                    return query;
+                },
+                processResults: function (result) {
+                    return {
+                        results: $.map(result, function (val, index) {
+                            return {
+                                id: index,
+                                text: val
+                            };
+                        }),
+                    };
+                }
+            }
+        });
+        function fillData(val, cardId) {
+            if (cardId === 'firstCardId') {
+                $('#firstCardId').show();
+                $('#firstCardTitleId')[0].innerText = 'Название: ' + val.title;
+                $('#firstCardDescId')[0].innerText = 'Описание: ' + val.description;
+                $('#firstCardPriceId')[0].innerText = 'Стоимость: ' + val.price + ' ₽';
+                $('#firstCardDateCreateId')[0].innerText = 'Дата создания: ' + val.dateCreate;
+            } else {
+                $('#secondCarId').show();
+                $('#secondCardTitleId')[0].innerText = 'Название: ' + val.title;
+                $('#secondCardDescId')[0].innerText = 'Описание: ' + val.description;
+                $('#secondCardPriceId')[0].innerText = 'Стоимость: ' + val.price + ' ₽';
+                $('#secondCardDateCreateId')[0].innerText = 'Дата создания: ' + val.dateCreate;
+            }
+            comparePicturies();
+        }
+
+
+        $("#secondPicturyId").on("change", function () {
+            const id = this.value;
+            if (id === "") return;
+            $.get("/Pictury/GetPictury", { id: id, isJson: true }, function (data) {
+                secondPictury = data;
+                fillData(secondPictury, "secondPicturyId");
+            });
+        });
+
+        $("#firstPicturyId").on("change", function () {
+            const id = this.value;
+            if (id === "") return;
+            $.get("/Pictury/GetPictury", { id: id, isJson: true }, function (data) {
+                firstPictury = data;
+                fillData(firstPictury, "firstCardId");
+            });
+        });
+
+        function comparePicturies() {
+            if (firstPictury === null) {
+                $('#warningId')[0].innerText = 'Вы не выбрали первую картину';
+                $('#warningCardId').show();
+                return;
+            }
+
+            if (secondPictury === null) {
+                $('#warningId')[0].innerText = 'Вы не выбрали вторую картину';
+                $('#warningCardId').show();
+                return;
+            }
+
+            var price = $('#resultPriceId')[0];
+            if (firstPictury.price > secondPictury.price) {
+                price.innerText = 'Стоимость ' + firstPictury.name + ' выше, чем у ' + secondPictury.name;
+            } else if (firstPictury.price === secondPictury.price) {
+                price.innerText = 'Стоимость ' + firstPictury.name + ' и ' + secondPictury.name + ' равны';
+            } else {
+                price.innerText = 'Стоимость ' + firstPictury.name + ' выше, чем у ' + secondPictury.name;
+            }
+            $('#resultCardId').show();
+            $('#warningCardId').hide();
+        }
+    });
+</script>
