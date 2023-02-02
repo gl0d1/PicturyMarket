@@ -12,7 +12,7 @@ namespace PicturyMarketWeb.Controllers
             _basketService = basketService;
         }
 
-        public async Task<IActionResult> DetailAsync()
+        public async Task<IActionResult> Detail()
         {
             var response = await _basketService.GetItemsAsync(User.Identity.Name);
 
@@ -25,7 +25,7 @@ namespace PicturyMarketWeb.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetItemAsync(int id)
+        public async Task<IActionResult> GetItem(int id)
         {
             var response = await _basketService.GetItemAsync(User.Identity.Name, id);
 

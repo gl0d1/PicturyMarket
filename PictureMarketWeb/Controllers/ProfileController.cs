@@ -14,7 +14,7 @@ namespace PicturyMarketWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SaveAsync(ProfileViewModel profileViewModel)
+        public async Task<IActionResult> Save(ProfileViewModel profileViewModel)
         {
             ModelState.Remove("Id");
             ModelState.Remove("UserName");
@@ -32,7 +32,7 @@ namespace PicturyMarketWeb.Controllers
             return StatusCode(StatusCodes.Status500InternalServerError);
         }
 
-        public async Task<IActionResult> DetailAsync()
+        public async Task<IActionResult> Detail()
         {
             var userName = User.Identity.Name;
             var response = await _profileService.GetProfileAsync(userName);

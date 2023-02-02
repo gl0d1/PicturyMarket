@@ -28,7 +28,7 @@ namespace PicturyMarketWeb.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPicturyAsync(int id)
+        public async Task<IActionResult> GetPictury(int id)
         {
             var response = await _picturyService.GetPicturyAsync(id);
 
@@ -41,7 +41,7 @@ namespace PicturyMarketWeb.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeletePicrutyAsync(int id)
+        public async Task<IActionResult> DeletePicruty(int id)
         {
             var response = await _picturyService.DeletePicruryAsync(id);
 
@@ -54,7 +54,7 @@ namespace PicturyMarketWeb.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> SaveAsync(int id)
+        public async Task<IActionResult> Save(int id)
         {
             if(id == 0)
             {
@@ -73,7 +73,7 @@ namespace PicturyMarketWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SaveAsync(PicturyViewModel picturyViewModel)
+        public async Task<IActionResult> Save(PicturyViewModel picturyViewModel)
         {
             ModelState.Remove("Id");
             ModelState.Remove("DateCreate");
@@ -99,7 +99,7 @@ namespace PicturyMarketWeb.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetPicturyAsync(int id, bool isJson)
+        public async Task<ActionResult> GetPictury(int id, bool isJson)
         {
             var response = await _picturyService.GetPicturyAsync(id);
 
@@ -108,11 +108,11 @@ namespace PicturyMarketWeb.Controllers
                 return Json(response.Data);
             }
 
-            return PartialView("GetPicturyAsync", response.Data);
+            return PartialView("GetPictury", response.Data);
         }
 
         [HttpPost]
-        public async Task<IActionResult> GetPicturyAsync(string term)
+        public async Task<IActionResult> GetPictury(string term)
         {
             var response = await _picturyService.GetPicturyAsync(term);
             return Json(response.Data);

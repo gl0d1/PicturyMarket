@@ -14,7 +14,7 @@ namespace PicturyMarketWeb.Controllers
         }
 
         [HttpGet]
-        public IActionResult CreateOrderAsync(int id) 
+        public IActionResult CreateOrder(int id) 
         {
             var orderViewModel = new CreateOrderViewModel()
             {
@@ -27,7 +27,7 @@ namespace PicturyMarketWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateOrderAsync(CreateOrderViewModel createOrderViewModel)
+        public async Task<IActionResult> CreateOrder(CreateOrderViewModel createOrderViewModel)
         {
             if(ModelState.IsValid)
             {
@@ -43,7 +43,7 @@ namespace PicturyMarketWeb.Controllers
             return StatusCode(StatusCodes.Status500InternalServerError);
         }
 
-        public async Task<IActionResult> DeleteAsync(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var response = await _orderService.DeleteAsync(id);
 

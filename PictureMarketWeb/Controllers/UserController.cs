@@ -9,7 +9,7 @@ namespace PicturyMarketWeb.Controllers
     {
         private readonly IUserService _userService;
 
-        public async Task<IActionResult> GetUsersAsync()
+        public async Task<IActionResult> GetUsers()
         {
             var response = await _userService.GetUsersAsync();
 
@@ -21,7 +21,7 @@ namespace PicturyMarketWeb.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public async Task<IActionResult> DeleteUserAsync(int id)
+        public async Task<IActionResult> DeleteUser(int id)
         {
             var response = await _userService.DeleteUserAsync(id);
 

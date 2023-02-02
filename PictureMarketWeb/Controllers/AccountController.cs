@@ -17,10 +17,10 @@ namespace PicturyMarketWeb.Controllers
         }
 
         [HttpGet]
-        public IActionResult RegisterAsync() => View();
+        public IActionResult Register() => View();
 
         [HttpPost]
-        public async Task<IActionResult> RegisterAsync(RegisterViewModel registerViewModel)
+        public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
         {
             if(ModelState.IsValid)
             {
@@ -40,10 +40,10 @@ namespace PicturyMarketWeb.Controllers
         }
 
         [HttpGet]
-        public IActionResult LoginAsync() => View();
+        public IActionResult Login() => View();
 
         [HttpPost]
-        public async Task<IActionResult> LoginAsync(LoginViewModel loginViewModel)
+        public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
             if(ModelState.IsValid)
             {
@@ -62,7 +62,7 @@ namespace PicturyMarketWeb.Controllers
         }
 
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> LogoutAsync()
+        public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home");        
