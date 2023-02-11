@@ -41,7 +41,7 @@ namespace PicturyMarketWeb.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeletePicruty(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var response = await _picturyService.DeletePicruryAsync(id);
 
@@ -52,6 +52,8 @@ namespace PicturyMarketWeb.Controllers
 
             return View("Error", $"{response.Description}");
         }
+
+        public IActionResult Compare() => PartialView();
 
         [HttpGet]
         public async Task<IActionResult> Save(int id)
@@ -124,7 +126,5 @@ namespace PicturyMarketWeb.Controllers
             var genres = _picturyService.GetGenres();
             return Json(genres.Data);
         }
-
-        public IActionResult Compare() => PartialView();
     }
 }
