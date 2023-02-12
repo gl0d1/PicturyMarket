@@ -15,7 +15,6 @@
                 <input asp-for="PicturyId" hidden />
                 <div asp-validation-summary="All" style="font-size:23px; font-family:Impact, serif" class="text-danger text-center"></div>
                 <h4 class="text-center">Форма создания заказа</h4>
-                <hr />
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label asp-for="@Model.Name" class="col-form-label text-black-50"></label>
@@ -30,10 +29,6 @@
                     <div class="form-group col-md-4">
                         <label asp-for="@Model.Quantity" class="col-form-label text-black-50"></label>
                         <input type="text" class="form-control" asp-for="@Model.Quantity">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label class="col-form-label text-black-50">Цвет</label>
-                        <input type="color" class="form-control form-control-color" id="colorInputId" value="#563d7c" />
                     </div>
                 </div>
                 <div class="d-grid gap-2 d-md-block float-right">
@@ -52,7 +47,7 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">○ Делаете заказ</li>
                 <li class="list-group-item">○ Мы звоним и уточняем у вас информацию</li>
-                <li class="list-group-item">○ Вы приезжаете на место</li>
+                <li class="list-group-item">○ Вы приезжаете на место, оплачиваете и забераете картину</li>
             </ul>
             <div class="card-body">
                 <a asp-controller="Home" asp-action="Index" class="card-link">Главная</a>

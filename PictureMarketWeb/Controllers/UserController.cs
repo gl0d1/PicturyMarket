@@ -9,6 +9,11 @@ namespace PicturyMarketWeb.Controllers
     {
         private readonly IUserService _userService;
 
+        public UserController(IUserService userService)
+        {
+            _userService = userService;
+        }
+
         public async Task<IActionResult> GetUsers()
         {
             var response = await _userService.GetUsersAsync();

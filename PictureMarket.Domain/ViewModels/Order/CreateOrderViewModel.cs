@@ -24,7 +24,9 @@ namespace PicturyMarket.Domain.ViewModels.Order
         [MinLength(2, ErrorMessage = "Фамилия должна иметь длину больше 2")]
         [MaxLength(50, ErrorMessage = "Фамилия должна иметь длину меньше 50")]
         public string Surname { get; set; }
+
         public int PicturyId { get; set; }
+
         public string Login { get; set; }
     }
 }

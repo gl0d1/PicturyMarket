@@ -1,5 +1,4 @@
-﻿
-namespace PicturyMarket.Domain.ViewModels.Order
+﻿namespace PicturyMarket.Domain.ViewModels.Order
 {
     public class OrderViewModel
     {

@@ -20,12 +20,22 @@ namespace PicturyMarket.DAL
             {
                 builder.ToTable("Users").HasKey(x => x.Id);
 
-                builder.HasData(new User
+                builder.HasData(new User[]
                 {
-                    Id = 1,
-                    Name = "Alex",
-                    Password = HashPasswordHelper.HashPassword("12345678"),
-                    Role = Role.Admin
+                    new User()
+                    {
+                        Id = 1,
+                        Name = "Alex",
+                        Password = HashPasswordHelper.HashPassword("123456"),
+                        Role = Role.Admin
+                    },
+                    new User()
+                    {
+                        Id = 10,
+                        Name = "Moderator",
+                        Password = HashPasswordHelper.HashPassword("654321"),
+                        Role = Role.Moderator
+                    }
                 });
 
                 builder.Property(x => x.Id).ValueGeneratedOnAdd();

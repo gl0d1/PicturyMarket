@@ -88,7 +88,7 @@ else
             <div class="row row-cols-1 @cardStyle text-center">
                 <div class="col" style="padding: 10px;">
                     <div class="card">
-                        <img src="~/img/pictury1.jpg" class="card-img-top card-image" alt="@pictury.Title">
+                        <img src="data:image/jpeg;base64,@Convert.ToBase64String(pictury?.Avatar ?? Array.Empty<byte>())" alt="@pictury.Title"/>
                         <div class="card-body">
                             <h5 class="card-title">Название: @pictury.Title</h5>
                             <p class="card-text">Краткое описание: @pictury.Description.Substring(0, 40) ...</p>
