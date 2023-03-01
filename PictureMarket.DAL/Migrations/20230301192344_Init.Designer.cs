@@ -12,8 +12,8 @@ using PicturyMarket.DAL;
 namespace PicturyMarket.DAL.Migrations
 {
     [DbContext(typeof(PicturyMarketDbContext))]
-    [Migration("20230212000522_AddUsers")]
-    partial class AddUsers
+    [Migration("20230301192344_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -123,11 +123,11 @@ namespace PicturyMarket.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreate = new DateTime(2023, 2, 12, 3, 5, 22, 367, DateTimeKind.Local).AddTicks(8470),
+                            DateCreate = new DateTime(2023, 3, 1, 22, 23, 44, 545, DateTimeKind.Local).AddTicks(1163),
                             Description = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                             Genre = 0,
                             Price = 10000m,
-                            Title = "Alex"
+                            Title = "Poppo"
                         });
                 });
 
@@ -195,7 +195,7 @@ namespace PicturyMarket.DAL.Migrations
                         },
                         new
                         {
-                            Id = 10,
+                            Id = 2,
                             Name = "Moderator",
                             Password = "481f6cc0511143ccdd7e2d1b1b94faf0a700a8b49cd13922a70b5ae28acaa8c5",
                             Role = 1

@@ -114,12 +114,16 @@ namespace PicturyMarket.DAL.Migrations
             migrationBuilder.InsertData(
                 table: "Picturies",
                 columns: new[] { "Id", "Avatar", "DateCreate", "Description", "Genre", "Price", "Title", "UserId" },
-                values: new object[] { 1, null, new DateTime(2023, 1, 28, 4, 1, 46, 116, DateTimeKind.Utc).AddTicks(7963), "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", 0, 10000m, "Alex", null });
+                values: new object[] { 1, null, new DateTime(2023, 3, 1, 22, 23, 44, 545, DateTimeKind.Utc).AddTicks(1163), "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", 0, 10000m, "Poppo", null });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Name", "Password", "Role" },
-                values: new object[] { 1, "Alex", "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f", 2 });
+                values: new object[,]
+                {
+                    { 1, "Alex", "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92", 2 },
+                    { 2, "Moderator", "481f6cc0511143ccdd7e2d1b1b94faf0a700a8b49cd13922a70b5ae28acaa8c5", 1 }
+                });
 
             migrationBuilder.InsertData(
                 table: "Baskets",

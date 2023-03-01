@@ -31,7 +31,7 @@ namespace PicturyMarket.DAL
                     },
                     new User()
                     {
-                        Id = 10,
+                        Id = 2,
                         Name = "Moderator",
                         Password = HashPasswordHelper.HashPassword("654321"),
                         Role = Role.Moderator
@@ -60,7 +60,7 @@ namespace PicturyMarket.DAL
                 builder.HasData(new Pictury
                 {
                     Id = 1,
-                    Title = "Alex",
+                    Title = "Poppo",
                     Description = new string('A', 50),
                     DateCreate = DateTime.Now,
                     Price = 10000,

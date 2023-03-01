@@ -20,4 +20,8 @@
     <ProjectReference Include="..\PictureMarket.Domain\PicturyMarket.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
